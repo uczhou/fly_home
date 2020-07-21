@@ -1,7 +1,12 @@
 ### Fly Home App
 This app use skyscanner api to search flights instead of web crawler. So the speed is much faster and dates range can be larger.
 
+##### Try Fly Home App
+
+http://abcaab810fcb.ngrok.io
+
 #### How to use?
+
 ##### System Requirements
 ```buildoutcfg
 Operating System: MacOS/Linux
