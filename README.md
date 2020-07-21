@@ -3,7 +3,7 @@ This app use skyscanner api to search flights instead of web crawler. So the spe
 
 ##### Try Fly Home App
 
-http://abcaab810fcb.ngrok.io
+http://c71389a152f5.ngrok.io
 
 #### How to use?
 
