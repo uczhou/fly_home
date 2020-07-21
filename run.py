@@ -14,8 +14,6 @@ from flights_resource import flights
 from utils import search_flight
 import numpy as np
 
-count = 1
-
 
 def make_clickable(url, text):
     return f'<a target="_blank" href="{url}">{text}</a>'
@@ -79,10 +77,8 @@ def cache_on_button_press(label, **cache_kwargs):
 
 # Searching function
 @cache_on_button_press('Search')
-def get_flights(start, end, region, cur):
-    global count
-    print('Start.....................search: {}'.format(count))
-    count += 1
+def get_flights(start, end, region, cur, search_count):
+    print('Start.....................search: {}'.format(search_count))
     dates = [start]
     if start.year != end.year or start.month != end.month:
         dates.append(end)
@@ -151,6 +147,7 @@ def show_table(st, df_record):
 
 
 if __name__ == '__main__':
+    search_count = 1
 
     app_title = st.title("五个一回国航班查询APP")
     selection_state = st.text('''
@@ -234,6 +231,7 @@ if __name__ == '__main__':
         else:
             pass
 
+        search_count += 1
         st.write("""\n\n
         谢谢使用app，请刷新网页（或按F5）开始新的查询。\n
         部分高需求航班可能会被航空公司锁仓所以不会显示在这里，部分国内航司需要上官网预约登记购票。\n
