@@ -274,7 +274,7 @@ if __name__ == '__main__':
 
         if filter_string == '全部':
             st.subheader('全部航班')
-            st.dataframe(data, height=1200)
+            st.table(data)
         elif filter_string == '日期':
             week_to_filter = st.selectbox("选择星期", ('周一', '周二', '周三', '周四', '周五', '周六', '周日'))
             week_of_days_mapping = {
@@ -283,7 +283,7 @@ if __name__ == '__main__':
             filtered_data = data[data['周几'].str.contains(week_to_filter)]
 
             st.subheader('选择日期： %s' % week_to_filter)
-            st.dataframe(filtered_data, height=1200)
+            st.table(filtered_data)
         elif filter_string == '地区':
             regions = ['北美', '东亚', '东南亚', '中东', '欧洲', '非洲']
             region = st.selectbox(
@@ -291,7 +291,7 @@ if __name__ == '__main__':
                 regions)
             filtered_data = data[data['区域'].str.contains(region)]
             st.subheader('选择区域： %s' % region)
-            st.dataframe(filtered_data, height=1200)
+            st.table(filtered_data)
         else:
             pass
         # elif filter_string == '始发国家':
