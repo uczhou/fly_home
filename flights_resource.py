@@ -591,7 +591,8 @@
 #     },
 # }
 
-flights = {'MU588': {'origin': 'JFK', 'destination': 'PVG', 'date': ['Wednesday'], 'region': 'North America',
+flights = {
+           'MU588': {'origin': 'JFK', 'destination': 'PVG', 'date': ['Wednesday'], 'region': 'North America',
                      'origin_city': '纽约 ', 'destination_city': '上海 ', 'country': '美国'},
            'DL287': {'origin': 'SEA', 'destination': 'PVG', 'date': ['Thursday'], 'region': 'North America',
                      'origin_city': '西雅图 ', 'destination_city': '上海 ', 'country': '美国'},
@@ -776,7 +777,8 @@ flights = {'MU588': {'origin': 'JFK', 'destination': 'PVG', 'date': ['Wednesday'
            'MS958': {'origin': 'CAI', 'destination': 'CAN', 'date': ['Thursday'], 'region': 'Africa',
                      'origin_city': '开罗 ', 'destination_city': '广州 ', 'country': '埃及'},
            '3U8392': {'origin': 'CAI', 'destination': 'CTU', 'date': ['Friday'], 'region': 'Africa',
-                      'origin_city': '开罗 ', 'destination_city': '成都 ', 'country': '埃及'}}
+                      'origin_city': '开罗 ', 'destination_city': '成都 ', 'country': '埃及'}
+           }
 
 airport_mapping = {
     "PVG": "SHANGHAI",

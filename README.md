@@ -13,7 +13,9 @@ Operating System: MacOS/Linux
 Python: version>=3.6
 ```
 ##### Step 1
-Run the following command:
+Download the file to your local disk and unzip the file.
+
+Then Run the following command:
 ```buildoutcfg
 python setup.py install
 ```
