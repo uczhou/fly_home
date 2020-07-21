@@ -77,8 +77,8 @@ def cache_on_button_press(label, **cache_kwargs):
 
 # Searching function
 @cache_on_button_press('Search')
-def get_flights(start, end, region, cur, search_count):
-    print('Start.....................search: {}'.format(search_count))
+def get_flights(start, end, region, cur):
+    print('Start.....................')
     dates = [start]
     if start.year != end.year or start.month != end.month:
         dates.append(end)
@@ -147,7 +147,6 @@ def show_table(st, df_record):
 
 
 if __name__ == '__main__':
-    search_count = 1
 
     app_title = st.title("五个一回国航班查询APP")
     selection_state = st.text('''
@@ -207,31 +206,30 @@ if __name__ == '__main__':
         if intv >= 3:
             st.write('为了优化性能，间隔请勿超过三个月')
         elif event_type == '北美':
-            df_record = get_flights(start, end, 'North America', cur, search_count)
+            df_record = get_flights(start, end, 'North America', cur)
             show_table(st, df_record)
         elif event_type == '欧洲':
-            df_record = get_flights(start, end, 'Europe', cur, search_count)
+            df_record = get_flights(start, end, 'Europe', cur)
             show_table(st, df_record)
         elif event_type == '东亚':
-            df_record = get_flights(start, end, 'East Asia', cur, search_count)
+            df_record = get_flights(start, end, 'East Asia', cur)
             # df_record.to_csv('flight_search_east.csv', encoding="utf-8")
             show_table(st, df_record)
         elif event_type == '中东':
-            df_record = get_flights(start, end, 'Middle East', cur, search_count)
+            df_record = get_flights(start, end, 'Middle East', cur)
             # df_record.to_csv('flight_search_middleeast.csv', encoding="utf-8")
             show_table(st, df_record)
         elif event_type == '东南亚':
-            df_record = get_flights(start, end, 'South East Asia', cur, search_count)
+            df_record = get_flights(start, end, 'South East Asia', cur)
             # df_record.to_csv('flight_search_southeast.csv', encoding="utf-8")
             show_table(st, df_record)
         elif event_type == '非洲':
-            df_record = get_flights(start, end, 'Africa', cur, search_count)
+            df_record = get_flights(start, end, 'Africa', cur)
             # df_record.to_csv('flight_search_africa.csv', encoding="utf-8")
             show_table(st, df_record)
         else:
             pass
 
-        search_count += 1
         st.write("""\n\n
         谢谢使用app，请刷新网页（或按F5）开始新的查询。\n
         部分高需求航班可能会被航空公司锁仓所以不会显示在这里，部分国内航司需要上官网预约登记购票。\n
