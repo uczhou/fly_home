@@ -69,9 +69,9 @@ def search_flight(origin, destination, currency, date):
                  '官网购票链接': get_link(origin, destination, datetime_dt, carriers_mapping.get(carrier_name, 'NA'), currency)},
                 ignore_index=True)
             
-    if not bool(tmp):
-        with open("resources/carriers_mapping.json", "w") as read_file:
-            json.dump(carriers_mapping, read_file)
+    # if not bool(tmp):
+    #     with open("resources/carriers_mapping.json", "w") as read_file:
+    #         json.dump(carriers_mapping, read_file)
 
     return df_record
 
