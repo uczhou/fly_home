@@ -78,6 +78,7 @@ def cache_on_button_press(label, **cache_kwargs):
 # Searching function
 @cache_on_button_press('Search')
 def get_flights(start, end, region, cur):
+    waiting_text = st.text("Searching....please wait....")
     print('Start.....................')
     dates = [start]
     if start.year != end.year or start.month != end.month:
@@ -127,6 +128,7 @@ def get_flights(start, end, region, cur):
                 time.sleep(0.5)
     df_records['官网购票链接'] = df_records['官网购票链接'].apply(make_clickable, args=('点击前往',))
     print('End...............................')
+    waiting_text.text("")
     return df_records
 
 
@@ -204,6 +206,7 @@ if __name__ == '__main__':
             cur = 'KRW'
         else:
             cur = 'EUR'
+
         if intv >= 3:
             st.write('为了优化性能，间隔请勿超过三个月')
         elif event_type == '北美':
