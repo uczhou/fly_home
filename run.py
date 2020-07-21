@@ -81,9 +81,15 @@ def get_flights(start, end, region, cur):
     waiting_text = st.text("Searching....please wait....")
     print('Start.....................')
     dates = [start]
-    if start.year != end.year or start.month != end.month:
-        dates.append(end)
-
+    next_date = start.replace(day=15)
+    while next_date.year != end.year or next_date.month != end.month:
+        if next_date.month == 12:
+            next_date = next_date.replace(year=next_date.year+1)
+            next_date = next_date.replace(month=1)
+        else:
+            next_date = next_date.replace(month=next_date.month+1)
+        dates.append(next_date)
+        # print(next_date)
     df_records = pd.DataFrame(columns=['日期', '星期', '始发国家', '始发城市', '始发机场', '到达城市', '到达机场', '航空公司', '航班号', '票价', '官网购票链接'])
 
     origin_destination = {}
@@ -162,7 +168,7 @@ if __name__ == '__main__':
             \n
             ''')
         st.write('''请先在左侧选择出发区域，之后设置查询日期区间和票价货币选择，最大
-            查询范围为三个月，查询间隔为1秒，北美出发一个月的航班大概查询时间为1分钟，
+            查询范围为60天，查询间隔为1秒，北美出发30天的航班大概查询时间为1分钟，
             请耐心等待。查询完毕后将会有列表显示有票结果以及官方购票链接''')
         event_list = ['请选择区域', '北美', '欧洲', '东亚', '东南亚', '中东', '非洲', '更多区域正在开发中']
         event_type = st.sidebar.selectbox(
@@ -194,7 +200,7 @@ if __name__ == '__main__':
             cur_list
         )
 
-        intv = end.month - start.month
+        intv = end - start
 
         if cur1 == '人民币':
             cur = 'CNY'
@@ -207,8 +213,8 @@ if __name__ == '__main__':
         else:
             cur = 'EUR'
 
-        if intv >= 3:
-            st.write('为了优化性能，间隔请勿超过三个月')
+        if intv.days > 60:
+            st.write('为了优化性能，间隔请勿超过60天')
         elif event_type == '北美':
             df_record = get_flights(start, end, 'North America', cur)
             show_table(st, df_record)
