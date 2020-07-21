@@ -17,7 +17,7 @@ with open('requirements.txt') as fp:
 # Package meta-data.
 NAME = 'Fly Home App'
 DESCRIPTION = 'This is a project to search flight tickets from world to China.'
-URL = 'https://github.com/uchzhou/myproject'
+URL = 'https://github.com/uczhou/fly_home'
 EMAIL = 'uchzhou@gmail.com'
 AUTHOR = 'Honglei Zhou'
 REQUIRES_PYTHON = '>=3.6.0'
