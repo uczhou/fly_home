@@ -143,7 +143,7 @@ def show_table(st, df_record):
         st.write("<b>查询日期范围内该地区的机票可能已售罄，建议更改日期范围或前往航空公司官网申请候补</b>", unsafe_allow_html=True)
     else:
         df = df_record.to_html(escape=False)
-        st.table(df, unsafe_allow_html=True)
+        st.table(df)
 
 
 if __name__ == '__main__':
