@@ -207,25 +207,25 @@ if __name__ == '__main__':
         if intv >= 3:
             st.write('为了优化性能，间隔请勿超过三个月')
         elif event_type == '北美':
-            df_record = get_flights(start, end, 'North America', cur)
+            df_record = get_flights(start, end, 'North America', cur, search_count)
             show_table(st, df_record)
         elif event_type == '欧洲':
-            df_record = get_flights(start, end, 'Europe', cur)
+            df_record = get_flights(start, end, 'Europe', cur, search_count)
             show_table(st, df_record)
         elif event_type == '东亚':
-            df_record = get_flights(start, end, 'East Asia', cur)
+            df_record = get_flights(start, end, 'East Asia', cur, search_count)
             # df_record.to_csv('flight_search_east.csv', encoding="utf-8")
             show_table(st, df_record)
         elif event_type == '中东':
-            df_record = get_flights(start, end, 'Middle East', cur)
+            df_record = get_flights(start, end, 'Middle East', cur, search_count)
             # df_record.to_csv('flight_search_middleeast.csv', encoding="utf-8")
             show_table(st, df_record)
         elif event_type == '东南亚':
-            df_record = get_flights(start, end, 'South East Asia', cur)
+            df_record = get_flights(start, end, 'South East Asia', cur, search_count)
             # df_record.to_csv('flight_search_southeast.csv', encoding="utf-8")
             show_table(st, df_record)
         elif event_type == '非洲':
-            df_record = get_flights(start, end, 'Africa', cur)
+            df_record = get_flights(start, end, 'Africa', cur, search_count)
             # df_record.to_csv('flight_search_africa.csv', encoding="utf-8")
             show_table(st, df_record)
         else:
