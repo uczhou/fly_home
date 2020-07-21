@@ -148,7 +148,7 @@ def show_table(st, df_record):
 
 if __name__ == '__main__':
 
-    app_title = st.title("五个一回国航班查询APP")
+    app_title = st.title("Fly Home 五个一航班查询APP")
     selection_state = st.text('''
         请选择相应服务进入下一步。\n
         ''')
@@ -230,8 +230,9 @@ if __name__ == '__main__':
         else:
             pass
 
-        st.write("""\n\n
-        谢谢使用app，请刷新网页（或按F5）开始新的查询。\n
+        st.write("""
+        \n
+        谢谢使用Fly Home App，请刷新网页（或按F5）开始新的查询。\n
         部分高需求航班可能会被航空公司锁仓所以不会显示在这里，部分国内航司需要上官网预约登记购票。\n
         疫情之下并不是所有机场都允许转机，有些国家可能需要核酸证明等文件，具体注意事项可以参照<a href="https://www.uscreditcardguide.com/xinguanyiqingzhixiaruhehuiguo/">这篇文章</a>。
         10月24日是航空公司的换季日，之后的航班信息可能会有变动\n
