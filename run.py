@@ -150,6 +150,7 @@ def show_table(st, df_record):
     if len(df_record) == 0:
         st.write("<b>查询日期范围内该地区的机票可能已售罄，建议更改日期范围或前往航空公司官网申请候补</b>", unsafe_allow_html=True)
     else:
+        df_record = df_record.sort_values(by=["日期"], ignore_index=True)
         df = df_record.to_html(escape=False)
         st.write(df, unsafe_allow_html=True)
         st.write("\n")
